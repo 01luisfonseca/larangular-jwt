@@ -1,0 +1,14 @@
+{
+  "name": "Laravel-Angular",
+  "namelower": "larangular",
+  "version": "0.0.1",
+  "description": "Frontend de Angular para Laravel",
+  "dependencies":{
+     "bootstrap": "^3.3.6"
+  },
+  "devDependencies": {
+    "karma":                    "0.12.16",
+    "karma-jasmine":            "0.1.5",
+    "karma-phantomjs-launcher": "0.1.4"
+  }
+}
