@@ -1,60 +1,24 @@
-<div class="navbar-wrapper">
-    <div class="container-fluid">
-        <nav class="navbar navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Logo</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#" class="">Home</a></li>
-                        <li class=" dropdown">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departments <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
-                                </li>
-                                <li><a href="#">Add New</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Add New</a></li>
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Managers <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">View Managers</a></li>
-                                <li><a href="#">Add New</a></li>
-                            </ul>
-                        </li>
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">View Staff</a></li>
-                                <li><a href="#">Add New</a></li>
-                                <li><a href="#">Bulk Upload</a></li>
-                            </ul>
-                        </li>
-                        <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HR <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Change Time Entry</a></li>
-                                <li><a href="#">Report</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav pull-right">
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Change Password</a></li>
-                                <li><a href="#">My Profile</a></li>
-                            </ul>
-                        </li>
-                        <li class=""><a href="#">Logout</a></li>
-                    </ul>
-                </div>
+<div class="col-md-6 col-md-offset-3">
+    <h2>Inicio de sesión</h2>
+    <form name="form" ng-submit="form.$valid && vm.login()" novalidate>
+        <div class="form-group" ng-class="{ 'has-error': form.$submitted && form.username.$invalid }">
+            <label for="username">Correo electrónico</label>
+            <input type="email" name="email" class="form-control" ng-model="vm.email" required />
+            <div ng-messages="form.$submitted && form.username.$error" class="help-block">
+                <div ng-message="required">El correo es requerido</div>
             </div>
-        </nav>
-    </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.$submitted && form.password.$invalid }">
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" class="form-control" ng-model="vm.password" required />
+            <div ng-messages="form.$submitted && form.password.$error" class="help-block">
+                <div ng-message="required">Contraseña es requerida</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button ng-disabled="vm.loading" class="btn btn-primary">Entrar</button>
+            <img ng-if="vm.loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+        <div ng-if="vm.error" class="alert alert-danger">{{vm.error}}</div>
+    </form>
 </div>

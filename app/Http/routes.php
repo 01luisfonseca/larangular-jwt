@@ -20,3 +20,11 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
 	Route::post('authenticate', 'AuthenticateController@authenticate');
 });
+
+Route::group(['middleware'=>'jwt.auth'], function()
+{
+    Route::group(['prefix'=>'usuarios'], function()
+    {
+        Route::get('todos','UsersController@all');
+    });
+});
